@@ -15,6 +15,8 @@
         "no-console": 0,
         // "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}],
         "import/no-extraneous-dependencies": 0,
-        "quotes": ["error", "double", { "allowTemplateLiterals": true }]
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
+        "no-underscore-dangle": 0,
+        "object-curly-newline": 0
     }
 }
