@@ -77,7 +77,11 @@ body {
 .app-bar .app-bar__navigation.open {
   left: 0;
 }
- 
+.app-bar .app-bar__navigation ul li a:hover {
+  color: aliceblue;
+  /* font-size: larger; */
+  text-decoration: underline;
+} 
 .app-bar .app-bar__navigation ul li a {
   display: inline-block;
   text-decoration: none;
@@ -86,6 +90,9 @@ body {
   margin-bottom: 5px;
   width: 100%;
   font-size: large;
+}
+.fa-star {
+  color: orange;
 }
  
 /*
@@ -171,6 +178,7 @@ main {
   display: -webkit-box;
   -webkit-line-clamp: 4; /* number of lines to show */
   -webkit-box-orient: vertical;
+  text-align: justify;
 }
  
  
@@ -191,9 +199,14 @@ main {
   width: 100%;
   max-width: 400px;
 }
- 
+
+
 .movie .movie__info h4 {
   margin: 8px 0;
+}
+
+.movie .movie__overview {
+  text-align: justify;
 }
  
  
