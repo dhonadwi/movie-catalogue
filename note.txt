@@ -1,3 +1,5 @@
 npm install @babel/core @babel/preset-env babel-loader copy-webpack-plugin@6.x.x css-loader@3.x.x eslint html-webpack-plugin@4.x.x style-loader@1.x.x webpack@4.x.x webpack-cli@3.x.x webpack-dev-server@3.x.x webpack-merge --save-dev
 
 npm install regenerator-runtime
+
+6529f9ebeb927e1e32e150459e5d61fd

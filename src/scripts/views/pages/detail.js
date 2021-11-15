@@ -1,3 +1,5 @@
+import TheMovieDbSource from "../../data/themoviedb-source";
+
 const Detail = {
   async render() {
     return `
@@ -9,6 +11,8 @@ const Detail = {
     const url = window.location.hash;
     const id = url.split("/");
     console.log(id[1]);
+    const movie = await TheMovieDbSource.detailMovie(id[1]);
+    console.log(movie);
   },
 };
 
