@@ -3,3 +3,5 @@ npm install @babel/core @babel/preset-env babel-loader copy-webpack-plugin@6.x.x
 npm install regenerator-runtime
 
 6529f9ebeb927e1e32e150459e5d61fd
+
+npm install serviceworker-webpack-plugin

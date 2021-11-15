@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // eslint-disable-next-line no-unused-vars
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
+const ServiceWorkerWebpackPlugin = require("serviceworker-webpack-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, "src/scripts/index.js"),
@@ -37,6 +38,9 @@ module.exports = {
           to: path.resolve(__dirname, "dist/"),
         },
       ],
+    }),
+    new ServiceWorkerWebpackPlugin({
+      entry: path.resolve(__dirname, "src/scripts/sw.js"),
     }),
   ],
 };
