@@ -17,3 +17,11 @@ const app = new App({
 //     alert("hahaa");
 //   });
 // });
+
+window.addEventListener("hashchange", () => {
+  app.renderPage();
+});
+
+window.addEventListener("load", () => {
+  app.renderPage();
+});
