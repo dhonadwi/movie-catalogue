@@ -11,6 +11,7 @@ const DrawerInitiator = {
     tags.forEach((tag) => {
       tag.addEventListener("click", (event) => {
         this._closeDrawer(event, drawer);
+        this._scroll();
       });
     });
   },
@@ -23,6 +24,13 @@ const DrawerInitiator = {
   _closeDrawer(event, drawer) {
     event.stopPropagation();
     drawer.classList.remove("open");
+  },
+
+  _scroll() {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
   },
 };
 

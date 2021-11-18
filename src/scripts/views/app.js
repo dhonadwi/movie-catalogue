@@ -21,9 +21,9 @@ class App {
   }
 
   async renderPage() {
-    const url = window.location.hash.slice(1).toLowerCase();
-    const urlSplit = url.split("/");
-    const page = routes[urlSplit[0]];
+    const url = routes.split();
+    // const urlSplit = url.split("/");
+    const page = routes[url[0]];
     this._content.innerHTML = await page.render();
     await page.afterRender();
   }

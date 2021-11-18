@@ -9,12 +9,11 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(cacheHelper.deleteOldCache());
+  console.log("delete cache");
 });
 
 self.addEventListener("fetch", (event) => {
   if (event.request.url.startsWith("http")) {
-    //skip request
     event.respondWith(cacheHelper.revalidateCache(event.request));
   }
-  // TODO: Add/get fetch request to/from caches
 });

@@ -7,6 +7,10 @@ const routes = {
   "now-playing": NowPlaying,
   upcoming: Upcoming,
   detail: Detail,
+  split: () => {
+    const url = window.location.hash.slice(1).toLowerCase();
+    return url.split("/");
+  },
 };
 
 export default routes;

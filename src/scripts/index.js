@@ -27,3 +27,13 @@ window.addEventListener("load", () => {
   app.renderPage();
   swRegister();
 });
+
+window.addEventListener("offline", function (e) {
+  console.log("offline");
+  alert("you are offline");
+});
+
+window.addEventListener("online", function (e) {
+  console.log("online");
+  app.renderPage();
+});

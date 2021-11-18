@@ -25,7 +25,7 @@ const cacheHelper = {
 
   //fungsi membuka cache yang sudah ada
   async _openCache() {
-    return caches.open("Movie-Catalogue-V1");
+    return caches.open(CONFIG.CACHE_NAME);
   },
 
   async _fetchRequest(request) {

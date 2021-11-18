@@ -18,6 +18,10 @@
         "quotes": ["error", "double", { "allowTemplateLiterals": true }],
         "no-underscore-dangle": 0,
         "object-curly-newline": 0,
-        "spaced-comment":"off"
+        "spaced-comment":"off",
+        "no-restricted-globals": ["error", "event", "fdescribe"],
+        "import/no-useless-path-segments": ["error", {
+            noUselessIndex: true,
+          }]
     }
 }
