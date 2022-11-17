@@ -1,4 +1,4 @@
-import CONFIG from "../../globals/config";
+import CONFIG from '../../globals/config';
 
 const createMovieDetailTemplate = (movie) => `
   <h2 class="movie__title">${movie.title}</h2>
@@ -25,11 +25,12 @@ const createMovieDetailTemplate = (movie) => `
 const createMovieItemTemplate = (movie) => `
   <div class="movie-item">
     <div class="movie-item__header">
+        <a href="${`/#detail/${movie.id}`}">
         <img class="movie-item__header__poster" alt="${movie.title}"
             src="${
               movie.backdrop_path
                 ? CONFIG.BASE_IMAGE_URL + movie.backdrop_path
-                : "https://picsum.photos/id/666/800/450?grayscale"
+                : 'https://picsum.photos/id/666/800/450?grayscale'
             }">
         <div class="movie-item__header__rating">
             <p><i class="fas fa-star"></i><span class="movie-item__header__rating__score">${
@@ -38,7 +39,7 @@ const createMovieItemTemplate = (movie) => `
         </div>
     </div>
     <div class="movie-item__content">
-        <h3><a href="${`/#detail/${movie.id}`}">${movie.title}</a></h3>
+        <h3>${movie.title}</a></h3>
         <p>${movie.overview}</p>
     </div>
   </div>

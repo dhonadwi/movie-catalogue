@@ -1,5 +1,5 @@
-import FavoriteMovieIdb from "../../data/favoritemovie-idb";
-import { createMovieItemTemplate } from "../templates/template-creator";
+import FavoriteMovieIdb from '../../data/favoritemovie-idb';
+import { createMovieItemTemplate } from '../templates/template-creator';
 
 const Favorites = {
   async render() {
@@ -15,10 +15,15 @@ const Favorites = {
 
   async afterRender() {
     const movies = await FavoriteMovieIdb.getAllMovies();
-    const moviesContainer = document.querySelector("#movies");
-    movies.forEach((movie) => {
-      moviesContainer.innerHTML += createMovieItemTemplate(movie);
-    });
+    const ada = movies.length;
+    const moviesContainer = document.querySelector('#movies');
+    if (ada >= 1) {
+      movies.forEach((movie) => {
+        moviesContainer.innerHTML += createMovieItemTemplate(movie);
+      });
+    } else {
+      moviesContainer.innerHTML = "<h1>You don't have Favorite movies</h1>";
+    }
   },
 };
 
