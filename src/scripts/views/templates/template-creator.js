@@ -1,6 +1,6 @@
 import CONFIG from '../../globals/config';
 
-const createMovieDetailTemplate = (movie) => `
+const createMovieDetailTemplate = (movie, video) => `
   <h2 class="movie__title">${movie.title}</h2>
   <img class="movie__poster" src="${
     CONFIG.BASE_IMAGE_URL + movie.poster_path
@@ -19,6 +19,11 @@ const createMovieDetailTemplate = (movie) => `
   <div class="movie__overview">
     <h3>Overview</h3>
     <p>${movie.overview}</p>
+  </div>
+  <div class="videowrapper">
+  <iframe width="854" height="480" src="https://www.youtube.com/embed/${
+    video[0].key
+  }" frameborder="0" gesture="media" allowfullscreen><iframe>
   </div>
 `;
 

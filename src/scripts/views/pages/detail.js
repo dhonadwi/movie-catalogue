@@ -1,7 +1,7 @@
-import TheMovieDbSource from "../../data/themoviedb-source";
-import LikeButtonInitiator from "../../utils/like-button-initiator";
-import { createMovieDetailTemplate } from "../templates/template-creator";
-import routes from "../../routes/routes";
+import TheMovieDbSource from '../../data/themoviedb-source';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
+import { createMovieDetailTemplate } from '../templates/template-creator';
+import routes from '../../routes/routes';
 
 const Detail = {
   async render() {
@@ -16,11 +16,13 @@ const Detail = {
     const url = routes.split();
     const id = url[1];
     const movie = await TheMovieDbSource.detailMovie(id);
-    const movieContainer = document.querySelector("#movie");
-    movieContainer.innerHTML = createMovieDetailTemplate(movie);
+    const video = await TheMovieDbSource.getVideo(id);
+    console.log(video.results);
+    const movieContainer = document.querySelector('#movie');
+    movieContainer.innerHTML = createMovieDetailTemplate(movie, video.results);
 
     LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector("#likeButtonContainer"),
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
       movie: {
         id: movie.id,
         title: movie.title,
