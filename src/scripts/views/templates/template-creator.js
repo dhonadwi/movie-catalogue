@@ -21,7 +21,7 @@ const createMovieDetailTemplate = (movie, video) => `
     <p>${movie.overview}</p>
   </div>
   <div class="videowrapper">
-  <iframe width="854" height="480" src="https://www.youtube.com/embed/${
+  <iframe width="1024" height="480" src="https://www.youtube.com/embed/${
     video[0].key
   }" frameborder="0" gesture="media" allowfullscreen><iframe>
   </div>

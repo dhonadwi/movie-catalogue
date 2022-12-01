@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
   const geoLocation = navigator.geolocation;
   geoLocation.getCurrentPosition((position) => {
     const posisi = {
-      title: `https://maps.google.com/maps/search/${position.coords.latitude},${position.coords.longitude}`,
+      lokasi: `https://maps.google.com/maps/search/${position.coords.latitude},${position.coords.longitude}`,
     };
     ApiSource.pushLocation(posisi);
   });
