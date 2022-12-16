@@ -6,3 +6,4 @@ npm install regenerator-runtime
 
 npm install serviceworker-webpack-plugin
 npm install idb
+a
