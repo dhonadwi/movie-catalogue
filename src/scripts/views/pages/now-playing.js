@@ -1,5 +1,6 @@
-import TheMovieDbSource from "../../data/themoviedb-source";
-import { createMovieItemTemplate } from "../templates/template-creator";
+import TheMovieDbSource from '../../data/themoviedb-source';
+import { createMovieItemTemplate } from '../templates/template-creator';
+import nowPlayingJson from '../../data/nowPlaying.json';
 
 const NowPlaying = {
   async render() {
@@ -14,10 +15,10 @@ const NowPlaying = {
   },
 
   async afterRender() {
-    const movies = await TheMovieDbSource.nowPlayingMovies();
-    const moviesContainer = document.querySelector("#movies");
+    // const movies = await TheMovieDbSource.nowPlaying();
+    const moviesContainer = document.querySelector('#movies');
     // console.log(movies);
-    movies.results.forEach((movie) => {
+    nowPlayingJson.results.forEach((movie) => {
       moviesContainer.innerHTML += createMovieItemTemplate(movie);
     });
   },

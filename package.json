@@ -32,8 +32,5 @@
     "idb": "^6.1.5",
     "regenerator-runtime": "^0.13.9",
     "serviceworker-webpack-plugin": "^1.0.1"
-  },
-  "engines": {
-    "node": "13.14.0"
   }
 }

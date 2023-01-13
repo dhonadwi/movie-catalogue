@@ -4,7 +4,7 @@ const createMovieDetailTemplate = (movie, video) => `
   <h2 class="movie__title">${movie.title}</h2>
   <img class="movie__poster" src="${
     CONFIG.BASE_IMAGE_URL + movie.poster_path
-  }" alt="${movie.title}" />
+  }" alt="${movie.title}" loading="lazy" />
   <div class="movie__info">
   <h3>Information</h3>
     <h4>Tagline</h4>
@@ -36,7 +36,7 @@ const createMovieItemTemplate = (movie) => `
               movie.backdrop_path
                 ? CONFIG.BASE_IMAGE_URL + movie.backdrop_path
                 : 'https://picsum.photos/id/666/800/450?grayscale'
-            }">
+            }" loading="lazy">
         <div class="movie-item__header__rating">
             <p><i class="fas fa-star"></i><span class="movie-item__header__rating__score">${
               movie.vote_average
