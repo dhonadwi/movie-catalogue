@@ -1,5 +1,6 @@
-import DrawerInitiator from "../utils/drawer-initiator";
-import routes from "../routes/routes";
+import DrawerInitiator from '../utils/drawer-initiator';
+import routes from '../routes/routes';
+import Users from '../utils/users';
 
 class App {
   constructor({ button, drawer, content, tags }) {
@@ -24,8 +25,20 @@ class App {
     const url = routes.split();
     // const urlSplit = url.split("/");
     const page = routes[url[0]];
-    this._content.innerHTML = await page.render();
-    await page.afterRender();
+    const cekCookie = await Users.cookie();
+    console.log(cekCookie);
+    if (cekCookie) {
+      if (url[0] == 'login') {
+        this._content.innerHTML = await routes.favorites.render();
+        await routes.favorites.afterRender();
+        return;
+      }
+      this._content.innerHTML = await page.render();
+      await page.afterRender();
+    } else {
+      this._content.innerHTML = await routes.login.render();
+      await Users.setCookie('id', 'dhona', 1);
+    }
   }
 }
 

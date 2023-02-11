@@ -1,4 +1,5 @@
 import FavoriteMovieIdb from '../../data/favoritemovie-idb';
+// import Users from '../../utils/users';
 import { createMovieItemTemplate } from '../templates/template-creator';
 
 const Favorites = {
@@ -14,6 +15,7 @@ const Favorites = {
   },
 
   async afterRender() {
+    // Users.cookie();
     const movies = await FavoriteMovieIdb.getAllMovies();
     const ada = movies.length;
     const moviesContainer = document.querySelector('#movies');
