@@ -37,7 +37,8 @@ class App {
       await page.afterRender();
     } else {
       this._content.innerHTML = await routes.login.render();
-      await Users.setCookie('id', 'dhona', 1);
+      await routes.login.afterRender();
+      // await Users.setCookie('id', 'dhona', 1);
     }
   }
 }

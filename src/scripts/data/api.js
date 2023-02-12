@@ -19,6 +19,19 @@ class ApiSource {
     // return responseJson;
     console.log(responseJson);
   }
+  static async login(user) {
+    const response = await fetch(API_ENDPOINT.login, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        // 'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(user),
+    });
+    const responseJson = await response.json();
+    return responseJson;
+  }
 }
 
 export default ApiSource;
