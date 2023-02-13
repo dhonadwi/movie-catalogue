@@ -1,4 +1,5 @@
 import API_ENDPOINT from '../globals/api-endpoint';
+import CONFIG from '../globals/config';
 
 class ApiSource {
   static async pushLocation(location) {
@@ -24,8 +25,11 @@ class ApiSource {
       method: 'POST',
       mode: 'cors',
       headers: {
-        // 'Content-Type': 'application/json',
-        Accept: 'application/json',
+        Accept: '*',
+        // 'Access-Control-Request-Headers': 'Authorization',
+        // Authorization: CONFIG.TOKEN,
+        // 'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Methods': 'POST',
       },
       body: JSON.stringify(user),
     });

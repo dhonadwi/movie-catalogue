@@ -1,5 +1,6 @@
-import { async } from 'regenerator-runtime';
 import ApiSource from '../../data/api';
+import Users from '../../utils/users';
+import App from '../app';
 
 const Login = {
   async render() {
@@ -27,6 +28,19 @@ const Login = {
       };
       const response = await ApiSource.login(data);
       console.log(response);
+      if (response.status == 'success') {
+        await Users.setCookie('id', `${response.data.name}`, 1);
+        console.log('cookie dibikin');
+        const app = new App({
+          button: document.querySelector('#hamburgerButton'),
+          drawer: document.querySelector('#navigationDrawer'),
+          content: document.querySelector('#mainContent'),
+          tags: document.querySelectorAll('a'),
+        });
+        app.renderPage();
+      } else {
+        console.log('cookie ga bikin');
+      }
     });
   },
 };
