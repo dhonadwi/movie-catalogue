@@ -1,6 +1,7 @@
 import ApiSource from '../../data/api';
 import Users from '../../utils/users';
 import App from '../app';
+import Swal from 'sweetalert2';
 
 const Login = {
   async render() {
@@ -27,10 +28,8 @@ const Login = {
         password: password.value,
       };
       const response = await ApiSource.login(data);
-      console.log(response);
       if (response.status == 'success') {
         await Users.setCookie('id', `${response.data.name}`, 1);
-        console.log('cookie dibikin');
         const app = new App({
           button: document.querySelector('#hamburgerButton'),
           drawer: document.querySelector('#navigationDrawer'),
@@ -39,7 +38,12 @@ const Login = {
         });
         app.renderPage();
       } else {
-        console.log('cookie ga bikin');
+        Swal.fire({
+          title: 'Error!',
+          text: 'User not Authorized',
+          icon: 'error',
+          confirmButtonText: 'OK',
+        });
       }
     });
   },
