@@ -32,6 +32,7 @@
     "idb": "^6.1.5",
     "regenerator-runtime": "^0.13.9",
     "serviceworker-webpack-plugin": "^1.0.1",
+    "spin.js": "^4.1.1",
     "sweetalert2": "^11.7.1"
   },
   "engines": {
