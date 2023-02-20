@@ -9,7 +9,7 @@ const CONFIG = {
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'movies',
   WEB_SOCKET_SERVER: 'wss://movies-feed.dicoding.dev',
-  TOKEN: 'token-1234567890',
+  TOKEN: '12345',
 };
 
 export default CONFIG;

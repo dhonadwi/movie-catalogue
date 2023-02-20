@@ -6,7 +6,7 @@ const API_ENDPOINT = {
   DETAIL: (id) => `${CONFIG.BASE_URL}movie/${id}?api_key=${CONFIG.KEY}`,
   VIDEO: (id) => `${CONFIG.BASE_URL}movie/${id}/videos?api_key=${CONFIG.KEY}`,
   location: `https://papuca.my.id/lokasi/`,
-  login: `https://papuca.my.id/login/`,
+  login: `https://papuca.my.id/api/`,
 };
 
 export default API_ENDPOINT;

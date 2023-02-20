@@ -24,12 +24,17 @@ const Login = {
     const password = document.querySelector('#password');
     btnSubmit.addEventListener('click', async () => {
       const data = {
-        name: name.value,
-        password: password.value,
+        nama: name.value,
+        pass: password.value,
       };
       const response = await ApiSource.login(data);
+      console.log(response);
       if (response.status == 'success') {
-        await Users.setCookie('id', `${response.data.name}`, 1);
+        // const token = response.token;
+        // const tokenDec = atob(token);
+        // console.log(tokenDec);
+        await Users.setCookie('id', `${response.token}`, 1);
+        // await Users.setCookie('token', `${token}`, 1);
         const app = new App({
           button: document.querySelector('#hamburgerButton'),
           drawer: document.querySelector('#navigationDrawer'),

@@ -29,6 +29,7 @@ const Users = {
   async cookie() {
     let id = await this.getCookie('id');
     if (id != '') {
+      id = atob(id);
       console.log('Welcome again ' + id);
       return true;
     } else {

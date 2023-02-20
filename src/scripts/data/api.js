@@ -23,17 +23,21 @@ class ApiSource {
   static async login(user) {
     const response = await fetch(API_ENDPOINT.login, {
       method: 'POST',
-      mode: 'cors',
+      // mode: 'cors',
+      // credentials: 'omit',
       headers: {
-        Accept: '*',
+        'Content-Type': 'application/json',
+        // Accept: '*',
         // 'Access-Control-Request-Headers': 'Authorization',
         // Authorization: CONFIG.TOKEN,
-        // 'Access-Control-Allow-Origin': '*',
+        // 'Access-Control-Allow-Origin': 'https://papuca.my.id',
         // 'Access-Control-Allow-Methods': 'POST',
+        'X-Auth-Token': CONFIG.TOKEN,
       },
       body: JSON.stringify(user),
     });
     const responseJson = await response.json();
+    // const responseJson = await response;
     return responseJson;
   }
 }
