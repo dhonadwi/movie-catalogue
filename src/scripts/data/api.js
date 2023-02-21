@@ -1,5 +1,4 @@
 import API_ENDPOINT from '../globals/api-endpoint';
-import CONFIG from '../globals/config';
 
 class ApiSource {
   static async pushLocation(location) {
@@ -32,7 +31,8 @@ class ApiSource {
         // Authorization: CONFIG.TOKEN,
         // 'Access-Control-Allow-Origin': 'https://papuca.my.id',
         // 'Access-Control-Allow-Methods': 'POST',
-        'X-Auth-Token': CONFIG.TOKEN,
+        // 'X-Auth-Token': CONFIG.TOKEN,
+        'X-Auth-Token': process.env.API_KEY,
       },
       body: JSON.stringify(user),
     });
