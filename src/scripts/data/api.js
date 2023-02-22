@@ -1,4 +1,5 @@
 import API_ENDPOINT from '../globals/api-endpoint';
+import Users from '../utils/users';
 
 class ApiSource {
   static async pushLocation(location) {
@@ -41,7 +42,7 @@ class ApiSource {
     return responseJson;
   }
   static async like(movie) {
-    const response = await fetch(API_ENDPOINT.like, {
+    const response = await fetch(`${API_ENDPOINT.like}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -54,12 +55,27 @@ class ApiSource {
     return responseJson;
   }
   static async deleteLike(movie) {
-    const response = await fetch(API_ENDPOINT.like, {
+    const response = await fetch(`${API_ENDPOINT.like}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(movie),
+    });
+    const responseJson = await response.json();
+    return responseJson;
+  }
+  static async getAllMovie() {
+    const user = await Users.getCookie('id');
+    console.log(user);
+    // return console.log(`${API_ENDPOINT.like}?user=siapa`);
+    const response = await fetch(`${API_ENDPOINT.like}?user=${user}`, {
+      // const response = await fetch(`${API_ENDPOINT.like}/`, {
+      // const response = await fetch(`${API_ENDPOINT.getLike}`, {
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     const responseJson = await response.json();
     return responseJson;

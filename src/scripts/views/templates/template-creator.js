@@ -45,7 +45,29 @@ const createMovieItemTemplate = (movie) => `
     </div>
     <div class="movie-item__content">
         <h3>${movie.title}</a></h3>
-        <p>${movie.overview}</p>
+        <p>${movie.overview} operview</p>
+    </div>
+  </div>
+  `;
+const createMovieItemTemplateDb = (movie) => `
+  <div class="movie-item">
+    <div class="movie-item__header">
+        <a href="${`/#detail/${movie.id_movie}`}">
+        <img class="movie-item__header__poster" alt="${movie.title}"
+            src="${
+              movie.backdrop_path
+                ? CONFIG.BASE_IMAGE_URL + movie.backdrop_path
+                : 'https://picsum.photos/id/666/800/450?grayscale'
+            }">
+        <div class="movie-item__header__rating">
+            <p><i class="fas fa-star"></i><span class="movie-item__header__rating__score">${
+              movie.vote_average
+            }</span></p>
+        </div>
+    </div>
+    <div class="movie-item__content">
+        <h3>${movie.title}</a></h3>
+        <p>${movie.overview} operview</p>
     </div>
   </div>
   `;
@@ -67,4 +89,5 @@ export {
   createMovieDetailTemplate,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
+  createMovieItemTemplateDb,
 };
