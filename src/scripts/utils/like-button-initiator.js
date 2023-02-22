@@ -51,7 +51,8 @@ const LikeButtonInitiator = {
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
       await FavoriteMovieIdb.deleteMovie(this._movie.id);
-      console.log('delete db');
+      const movie = await ApiSource.deleteLike(this._movie);
+      console.log(movie);
       this._renderButton();
     });
   },

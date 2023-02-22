@@ -53,6 +53,17 @@ class ApiSource {
 
     return responseJson;
   }
+  static async deleteLike(movie) {
+    const response = await fetch(API_ENDPOINT.like, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(movie),
+    });
+    const responseJson = await response.json();
+    return responseJson;
+  }
 }
 
 export default ApiSource;
