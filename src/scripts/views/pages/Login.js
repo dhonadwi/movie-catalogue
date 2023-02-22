@@ -5,19 +5,51 @@ import Swal from 'sweetalert2';
 import { Spinner } from 'spin.js';
 
 const Login = {
+  //   <div class="content">
+  //   <div id="spinner"></div>
+  //   <h2 class="content__heading">Halaman Login</h2>
+  //   <div id="movies" class="movies">
+  //     <form action="#">
+  //     <input type="text" name="name" id="name">
+  //     <input type="password" name="password" id="password">
+  //     <input type="button" value="Submit" id="submit">
+  //     </form>
+  //   </div>
+  // </div>
+  // <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
   async render() {
     return `
     <div class="content">
     <div id="spinner"></div>
-    <h2 class="content__heading">Halaman Login</h2>
-    <div id="movies" class="movies">
-      <form action="#">
-      <input type="text" name="name" id="name">
-      <input type="password" name="password" id="password">
-      <input type="button" value="Submit" id="submit">
-      </form>
+    <section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://nbcpalmsprings.com/wp-content/uploads/sites/8/2021/12/BEST-MOVIES-OF-2021.jpeg"
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="name" class="form-control form-control-lg" name="name" />
+            <label class="form-label" for="form1Example13">Username</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="password" class="form-control form-control-lg" name="password" />
+            <label class="form-label" for="form1Example23">Password</label>
+          </div>
+
+          <!-- Submit button -->
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="submit">Sign in</button>
+        </form>
+      </div>
     </div>
   </div>
+</section>
+</div>
     `;
   },
   async afterRender() {

@@ -40,6 +40,19 @@ class ApiSource {
     // const responseJson = await response;
     return responseJson;
   }
+  static async like(movie) {
+    const response = await fetch(API_ENDPOINT.like, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'X-Auth-Token': process.env.API_KEY,
+      },
+      body: JSON.stringify(movie),
+    });
+    const responseJson = await response.json();
+
+    return responseJson;
+  }
 }
 
 export default ApiSource;
