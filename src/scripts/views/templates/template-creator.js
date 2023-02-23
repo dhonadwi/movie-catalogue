@@ -67,7 +67,7 @@ const createMovieItemTemplateDb = (movie) => `
     </div>
     <div class="movie-item__content">
         <h3>${movie.title}</a></h3>
-        <p>${movie.overview} operview</p>
+        <p>${movie.overview}</p>
     </div>
   </div>
   `;

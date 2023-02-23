@@ -36,7 +36,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      // console.log(idUser);
+      console.log(this._movie);
       // await this._movie.user = idUser
       await FavoriteMovieIdb.putMovie(this._movie);
       const movie = await ApiSource.like(this._movie);

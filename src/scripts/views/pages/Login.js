@@ -3,6 +3,7 @@ import Users from '../../utils/users';
 import App from '../app';
 import Swal from 'sweetalert2';
 import { Spinner } from 'spin.js';
+import { async } from 'regenerator-runtime';
 
 const Login = {
   //   <div class="content">
@@ -43,7 +44,7 @@ const Login = {
           </div>
 
           <!-- Submit button -->
-          <button type="button" class="btn btn-primary btn-lg btn-block" id="submit">Sign in</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Sign in</button>
         </form>
       </div>
     </div>
@@ -84,7 +85,11 @@ const Login = {
     const btnSubmit = document.querySelector('#submit');
     const name = document.querySelector('#name');
     const password = document.querySelector('#password');
-    btnSubmit.addEventListener('click', async () => {
+    document.forms[0].addEventListener('submit', async (e) => {
+      //   console.log('cobain');
+      e.preventDefault();
+      // });
+      // btnSubmit.addEventListener('click', async () => {
       spinner.spin(document.getElementById('spinner'));
       document.getElementById('spinner').style.display = 'block';
       const data = {
