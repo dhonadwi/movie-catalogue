@@ -6,6 +6,7 @@ import routes from '../../routes/routes';
 const Detail = {
   async render() {
     return `
+    <div id="spinner"></div>
     <div id="movie" class="movie"></div>
     <div id="likeButtonContainer">
     <h1>Loading...</h1></div>
@@ -30,6 +31,7 @@ const Detail = {
         backdrop_path: movie.backdrop_path,
         vote_average: movie.vote_average,
       },
+      spinner: document.querySelector('#spinner'),
     });
   },
 };
