@@ -30,7 +30,6 @@ const Users = {
     let id = await this.getCookie('id');
     if (id != '') {
       id = atob(id);
-      console.log('Welcome again ' + id);
       return true;
     } else {
       // console.log('ga ada cookie');

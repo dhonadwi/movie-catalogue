@@ -26,7 +26,6 @@ class App {
     // const urlSplit = url.split("/");
     const page = routes[url[0]];
     const cekCookie = await Users.cookie();
-    console.log(cekCookie);
     if (cekCookie) {
       if (url[0] == 'login') {
         this._content.innerHTML = await routes.favorites.render();

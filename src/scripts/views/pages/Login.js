@@ -81,7 +81,7 @@ const Login = {
     });
     spinner.spin(document.getElementById('spinner'));
     document.getElementById('spinner').style.display = 'none';
-    const btnSubmit = document.querySelector('#submit');
+    // const btnSubmit = document.querySelector('#submit');
     const name = document.querySelector('#name');
     const password = document.querySelector('#password');
     document.forms[0].addEventListener('submit', async (e) => {

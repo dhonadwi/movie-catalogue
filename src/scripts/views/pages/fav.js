@@ -47,7 +47,6 @@ const Fav_Db = {
     spinner.spin(document.getElementById('spinner'));
     document.getElementById('spinner').style.display = 'block';
     const movies = await ApiSource.getAllMovie();
-    console.log(movies);
     const ada = movies.data.length;
     const moviesContainer = document.querySelector('#movies');
     if (ada >= 1) {
