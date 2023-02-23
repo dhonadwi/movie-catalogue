@@ -64,7 +64,7 @@ const LikeButtonInitiator = {
     this._likeButtonContainer.innerHTML = createLikeButtonTemplate();
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      spinner.spin(document.getElementById('spinner'));
+      spinner.spin(this._spinner);
       this._spinner.style.display = 'block';
       await FavoriteMovieIdb.putMovie(this._movie);
       await ApiSource.like(this._movie);
@@ -78,7 +78,7 @@ const LikeButtonInitiator = {
     this._likeButtonContainer.innerHTML = createLikedButtonTemplate();
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      spinner.spin(document.getElementById('spinner'));
+      spinner.spin(this._spinner);
       this._spinner.style.display = 'block';
       await FavoriteMovieIdb.deleteMovie(this._movie.id);
       await ApiSource.deleteLike(this._movie);

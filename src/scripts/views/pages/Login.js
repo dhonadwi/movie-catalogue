@@ -3,7 +3,6 @@ import Users from '../../utils/users';
 import App from '../app';
 import Swal from 'sweetalert2';
 import { Spinner } from 'spin.js';
-import { async } from 'regenerator-runtime';
 
 const Login = {
   //   <div class="content">

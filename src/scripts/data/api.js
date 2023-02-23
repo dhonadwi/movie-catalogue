@@ -1,5 +1,6 @@
 import API_ENDPOINT from '../globals/api-endpoint';
 import Users from '../utils/users';
+import Swal from 'sweetalert2';
 
 class ApiSource {
   static async pushLocation(location) {
@@ -66,19 +67,26 @@ class ApiSource {
     return responseJson;
   }
   static async getAllMovie() {
-    const user = await Users.getCookie('id');
-    console.log(user);
-    // return console.log(`${API_ENDPOINT.like}?user=siapa`);
-    const response = await fetch(`${API_ENDPOINT.like}?user=${user}`, {
-      // const response = await fetch(`${API_ENDPOINT.like}/`, {
-      // const response = await fetch(`${API_ENDPOINT.getLike}`, {
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const responseJson = await response.json();
-    return responseJson;
+    try {
+      const user = await Users.getCookie('id');
+
+      const response = await fetch(`${API_ENDPOINT.like}?user=${user}`, {
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const responseJson = await response.json();
+      return responseJson;
+    } catch (error) {
+      Swal.fire({
+        title: 'Error!',
+        text: error,
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
+      console.log(`koneksi error :${error}`);
+    }
   }
 }
 
