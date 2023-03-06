@@ -5,18 +5,6 @@ import Swal from 'sweetalert2';
 import { Spinner } from 'spin.js';
 
 const Login = {
-  //   <div class="content">
-  //   <div id="spinner"></div>
-  //   <h2 class="content__heading">Halaman Login</h2>
-  //   <div id="movies" class="movies">
-  //     <form action="#">
-  //     <input type="text" name="name" id="name">
-  //     <input type="password" name="password" id="password">
-  //     <input type="button" value="Submit" id="submit">
-  //     </form>
-  //   </div>
-  // </div>
-  // <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
   async render() {
     return `
     <div class="content">
@@ -30,6 +18,7 @@ const Login = {
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
         <form>
+        <h1>Login</h1>
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="text" id="name" class="form-control form-control-lg" name="name" />
@@ -44,6 +33,7 @@ const Login = {
 
           <!-- Submit button -->
           <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Sign in</button>
+          <a href='#register' class="btn btn-success btn-lg btn-block" id="register">Register</a>
         </form>
       </div>
     </div>
@@ -81,14 +71,10 @@ const Login = {
     });
     spinner.spin(document.getElementById('spinner'));
     document.getElementById('spinner').style.display = 'none';
-    // const btnSubmit = document.querySelector('#submit');
     const name = document.querySelector('#name');
     const password = document.querySelector('#password');
     document.forms[0].addEventListener('submit', async (e) => {
-      //   console.log('cobain');
       e.preventDefault();
-      // });
-      // btnSubmit.addEventListener('click', async () => {
       spinner.spin(document.getElementById('spinner'));
       document.getElementById('spinner').style.display = 'block';
       const data = {
@@ -96,13 +82,8 @@ const Login = {
         pass: password.value,
       };
       const response = await ApiSource.login(data);
-      console.log(response);
       if (response.status == 'success') {
-        // const token = response.token;
-        // const tokenDec = atob(token);
-        // console.log(tokenDec);
         await Users.setCookie('id', `${response.token}`, 1);
-        // await Users.setCookie('token', `${token}`, 1);
         const app = new App({
           button: document.querySelector('#hamburgerButton'),
           drawer: document.querySelector('#navigationDrawer'),

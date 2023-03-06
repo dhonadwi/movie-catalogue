@@ -35,6 +35,11 @@ class App {
       this._content.innerHTML = await page.render();
       await page.afterRender();
     } else {
+      if (url[0] == 'register') {
+        this._content.innerHTML = await page.render();
+        await page.afterRender();
+        return;
+      }
       this._content.innerHTML = await routes.login.render();
       await routes.login.afterRender();
       // await Users.setCookie('id', 'dhona', 1);
