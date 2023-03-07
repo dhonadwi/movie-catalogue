@@ -5,6 +5,7 @@ import Favorites from '../views/pages/favorites';
 import Login from '../views/pages/Login';
 import Fav_Db from '../views/pages/fav';
 import Register from '../views/pages/register';
+import Reset from '../views/pages/reset';
 
 const routes = {
   '': NowPlaying,
@@ -15,6 +16,7 @@ const routes = {
   login: Login,
   fav: Fav_Db,
   register: Register,
+  reset: Reset,
   split: () => {
     const url = window.location.hash.slice(1).toLowerCase();
     return url.split('/');

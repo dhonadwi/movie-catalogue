@@ -37,6 +37,18 @@ class ApiSource {
     const responseJson = await response.json();
     return responseJson;
   }
+  static async reset(user) {
+    const response = await fetch(API_ENDPOINT.register, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Auth-Token': process.env.API_KEY,
+      },
+      body: JSON.stringify(user),
+    });
+    const responseJson = await response.json();
+    return responseJson;
+  }
   static async like(movie) {
     const response = await fetch(`${API_ENDPOINT.like}`, {
       method: 'POST',

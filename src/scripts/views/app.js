@@ -40,6 +40,11 @@ class App {
         await page.afterRender();
         return;
       }
+      if (url[0] == 'reset') {
+        this._content.innerHTML = await page.render();
+        await page.afterRender();
+        return;
+      }
       this._content.innerHTML = await routes.login.render();
       await routes.login.afterRender();
       // await Users.setCookie('id', 'dhona', 1);
