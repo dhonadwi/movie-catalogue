@@ -1,40 +1,31 @@
 import ApiSource from '../../data/api';
-import Users from '../../utils/users';
-import App from '../app';
 import Swal from 'sweetalert2';
 import { Spinner } from 'spin.js';
 
-const Login = {
+const Register = {
   async render() {
     return `
     <div class="content">
     <div id="spinner"></div>
     <section class="vh-100">
   <div class="container py-5 h-100">
-    <div class="row d-flex align-items-center justify-content-center h-100">
-      <div class="col-md-8 col-lg-7 col-xl-6">
-        <img src="https://nbcpalmsprings.com/wp-content/uploads/sites/8/2021/12/BEST-MOVIES-OF-2021.jpeg"
-          class="img-fluid" alt="Phone image">
-      </div>
-      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <form>
-        <h1>Login</h1>
+  <div class="row d-flex align-items-center justify-content-center h-100">
+  <div class="col-md-8 col-lg-7 col-xl-6">
+  <img src="https://nbcpalmsprings.com/wp-content/uploads/sites/8/2021/12/BEST-MOVIES-OF-2021.jpeg"
+  class="img-fluid" alt="Phone image">
+  </div>
+  <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+  <form>
+  <h1>Register</h1>
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="text" id="name" class="form-control form-control-lg" name="name" />
-            <label class="form-label" for="form1Example13">Username</label>
-          </div>
-
-          <!-- Password input -->
-          <div class="form-outline mb-4">
-            <input type="password" id="password" class="form-control form-control-lg" name="password" />
-            <label class="form-label" for="form1Example23">Password</label>
+            <input type="email" id="email" class="form-control form-control-lg" name="email" required/>
+            <label class="form-label" for="form1Example13">Email</label>
           </div>
 
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Sign in</button>
-          <a href='#register' class="btn btn-success btn-lg btn-block" id="register">Register</a>
-          <p><a href='#reset' id="register">Reset Password</a></p>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
+          <a href='#login' class="btn btn-success btn-lg btn-block" id="login">Back to Login</a>
         </form>
       </div>
     </div>
@@ -72,34 +63,38 @@ const Login = {
     });
     spinner.spin(document.getElementById('spinner'));
     document.getElementById('spinner').style.display = 'none';
-    const name = document.querySelector('#name');
-    const password = document.querySelector('#password');
+    const name = document.querySelector('#email');
     document.forms[0].addEventListener('submit', async (e) => {
       e.preventDefault();
       spinner.spin(document.getElementById('spinner'));
       document.getElementById('spinner').style.display = 'block';
       const data = {
-        nama: name.value,
-        pass: password.value,
+        email: name.value,
       };
-      const response = await ApiSource.login(data);
+      const response = await ApiSource.register(data);
+      spinner.stop();
+      document.getElementById('spinner').style.display = 'none';
+      Swal.fire({
+        title: 'Error!',
+        text: 'Kacau ah',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
       if (response.status == 'success') {
-        await Users.setCookie('id', `${response.token}`, 1);
-        const app = new App({
-          button: document.querySelector('#hamburgerButton'),
-          drawer: document.querySelector('#navigationDrawer'),
-          content: document.querySelector('#mainContent'),
-          tags: document.querySelectorAll('a'),
-        });
         spinner.stop();
         document.getElementById('spinner').style.display = 'none';
-        app.renderPage();
+        Swal.fire({
+          title: 'Success!',
+          text: 'Please Check Email to Login',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        });
       } else {
         spinner.stop();
         document.getElementById('spinner').style.display = 'none';
         Swal.fire({
           title: 'Error!',
-          text: 'User not Authorized',
+          text: 'User has been registered',
           icon: 'error',
           confirmButtonText: 'OK',
         });
@@ -108,4 +103,4 @@ const Login = {
   },
 };
 
-export default Login;
+export default Register;

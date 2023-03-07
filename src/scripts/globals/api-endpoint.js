@@ -8,6 +8,7 @@ const API_ENDPOINT = {
   location: `https://papuca.my.id/lokasi/`,
   login: `https://papuca.my.id/api/`,
   like: `https://papuca.my.id/api/like/`,
+  register: `https://papuca.my.id/api/email/`,
 };
 
 export default API_ENDPOINT;

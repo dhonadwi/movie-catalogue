@@ -26,11 +26,10 @@ class ApiSource {
     return responseJson;
   }
   static async register(user) {
-    const response = await fetch(API_ENDPOINT.login, {
-      method: 'PUT',
+    const response = await fetch(API_ENDPOINT.register, {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-
         'X-Auth-Token': process.env.API_KEY,
       },
       body: JSON.stringify(user),
