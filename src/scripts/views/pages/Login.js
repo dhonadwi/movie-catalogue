@@ -22,7 +22,7 @@ const Login = {
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="text" id="name" class="form-control form-control-lg" name="name" />
-            <label class="form-label" for="form1Example13">Username</label>
+            <label class="form-label" for="form1Example13">No. Whatsapp</label>
           </div>
 
           <!-- Password input -->
@@ -83,6 +83,7 @@ const Login = {
         pass: password.value,
       };
       const response = await ApiSource.login(data);
+      // console.log(response);
       if (response.status == 'success') {
         await Users.setCookie('id', `${response.token}`, 1);
         const app = new App({
@@ -99,7 +100,7 @@ const Login = {
         document.getElementById('spinner').style.display = 'none';
         Swal.fire({
           title: 'Error!',
-          text: 'User not Authorized',
+          text: response.message,
           icon: 'error',
           confirmButtonText: 'OK',
         });

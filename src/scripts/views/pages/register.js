@@ -19,8 +19,8 @@ const Register = {
   <h1>Register</h1>
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="email" class="form-control form-control-lg" name="email" required/>
-            <label class="form-label" for="form1Example13">Email</label>
+            <input type="number" id="email" class="form-control form-control-lg" name="email" required/>
+            <label class="form-label" for="form1Example13">No. Whatsapp</label>
           </div>
 
           <!-- Submit button -->
@@ -71,7 +71,11 @@ const Register = {
       const data = {
         email: name.value,
       };
-      const response = await ApiSource.register(data);
+      const response = await ApiSource.register_wa(data);
+      // const response = await ApiSource.send_wa(
+      //   name.value,
+      //   'halao anada ddaftar papaap'
+      // );
       spinner.stop();
       document.getElementById('spinner').style.display = 'none';
       Swal.fire({
@@ -81,6 +85,7 @@ const Register = {
         confirmButtonText: 'OK',
       });
       if (response.status == 'success') {
+        // console.log(response);
         spinner.stop();
         document.getElementById('spinner').style.display = 'none';
         Swal.fire({
@@ -90,6 +95,7 @@ const Register = {
           confirmButtonText: 'OK',
         });
       } else {
+        // console.log(response);
         spinner.stop();
         document.getElementById('spinner').style.display = 'none';
         Swal.fire({

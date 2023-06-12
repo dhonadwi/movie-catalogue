@@ -1,5 +1,6 @@
 import 'regenerator-runtime';
 import '../styles/style.css';
+import '../styles/style-chat.css';
 import '../styles/responsive.css';
 import '../../node_modules/spin.js/spin.css';
 import App from './views/app';

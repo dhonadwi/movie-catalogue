@@ -9,6 +9,8 @@ const API_ENDPOINT = {
   login: `https://papuca.my.id/api/`,
   like: `https://papuca.my.id/api/like/`,
   register: `https://papuca.my.id/api/email/`,
+  register_wa: `https://papuca.my.id/api/wa/`,
+  send_wa: `https://api.fonnte.com/send`,
 };
 
 export default API_ENDPOINT;

@@ -10,6 +10,7 @@ const CONFIG = {
   OBJECT_STORE_NAME: 'movies',
   WEB_SOCKET_SERVER: 'wss://movies-feed.dicoding.dev',
   TOKEN: '12345',
+  AUTH: '8m7@jdTSkBF48u13U83y',
 };
 
 export default CONFIG;

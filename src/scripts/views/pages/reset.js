@@ -16,11 +16,11 @@ const Register = {
   </div>
   <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
   <form>
-  <h1>Register</h1>
+  <h4>Reset Your Password</h4>
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="email" class="form-control form-control-lg" name="email" required/>
-            <label class="form-label" for="form1Example13">Email</label>
+            <input type="text" id="email" class="form-control form-control-lg" name="email" required/>
+            <label class="form-label" for="form1Example13">No. Whatsapp</label>
           </div>
 
           <!-- Submit button -->
@@ -72,6 +72,7 @@ const Register = {
         email: name.value,
       };
       const response = await ApiSource.reset(data);
+      // console.log(response);
       spinner.stop();
       document.getElementById('spinner').style.display = 'none';
       Swal.fire({
@@ -85,7 +86,7 @@ const Register = {
         document.getElementById('spinner').style.display = 'none';
         Swal.fire({
           title: 'Success!',
-          text: 'Please Check Email to Login',
+          text: 'Please Check Whatsapp to Login',
           icon: 'success',
           confirmButtonText: 'OK',
         });
